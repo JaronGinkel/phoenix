@@ -51,7 +51,7 @@ public class FighterController : MonoBehaviour {
 	void Update () {
 
        
-        else
+
         {
             Vector3 move = gameObject.transform.localPosition;
 
