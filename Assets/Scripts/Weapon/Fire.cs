@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Fire : MonoBehaviour {
+public class Fire : NetworkBehaviour {
 
     public GameObject bulletPrefab;
 
@@ -19,18 +20,24 @@ public class Fire : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //calls the fire command
-		if(Input.GetKeyDown(KeyCode.Space) ==true)
+        if (isLocalPlayer)
         {
-            Shoot();
+            if (Input.GetKeyDown(KeyCode.Space) == true)
+            {
+                CmdShoot();
+            }
         }
 	}
 
     //method for bullet spawn
-    void Shoot()
+    [Command]
+    void CmdShoot()
     {
         GameObject bullet = (GameObject)Instantiate(bulletPrefab, bulletspawn.position, bulletspawn.rotation);
 
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.right*bulletspeed;
+
+        NetworkServer.Spawn(bullet);
 
         Destroy(bullet, bulletlifespan);
     }
