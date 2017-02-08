@@ -35,7 +35,7 @@ public class Fire : NetworkBehaviour {
     {
         GameObject bullet = (GameObject)Instantiate(bulletPrefab, bulletspawn.position, bulletspawn.rotation);
 
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.right*bulletspeed;
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.right * bulletspeed;
 
         NetworkServer.Spawn(bullet);
 
