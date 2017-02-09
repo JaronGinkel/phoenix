@@ -9,6 +9,8 @@ public class Fire : NetworkBehaviour {
 
     public float bulletspeed;
 
+    public GameObject fighter;
+
     public Transform bulletspawn;
 
     public float bulletlifespan;
@@ -35,7 +37,7 @@ public class Fire : NetworkBehaviour {
     {
         GameObject bullet = (GameObject)Instantiate(bulletPrefab, bulletspawn.position, bulletspawn.rotation);
 
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.right * bulletspeed;
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.right * bulletspeed + fighter.GetComponent<Rigidbody>().velocity;
 
         NetworkServer.Spawn(bullet);
 
