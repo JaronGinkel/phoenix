@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Networking\PlayerID.cs" />
+    <Compile Include="Assets\Scripts\Networking\Spawns.cs" />
     <Compile Include="Assets\Scripts\Ship\FighterController.cs" />
     <Compile Include="Assets\Scripts\Ship\NonVRPlayerSetup.cs" />
     <Compile Include="Assets\Scripts\Ship\nonVRFighterController.cs" />
