@@ -37,35 +37,43 @@ public class nonVRFighterController : NetworkBehaviour {
         //this if statment handles forward movement
         if (Input.GetKey(KeyCode.W) == true)
         {
-            ship.GetComponent<Rigidbody>().velocity = ship.transform.right * moverate;
+            ship.GetComponent<Rigidbody>().AddRelativeForce(Vector3.right * moverate);
+           // ship.GetComponent<Rigidbody>().velocity = ship.transform.right * moverate;
         }
         if (Input.GetKey(KeyCode.S) == true)
         {
-            ship.GetComponent<Rigidbody>().velocity = ship.transform.right* -moverate;
+            ship.GetComponent<Rigidbody>().AddRelativeForce(Vector3.right * -moverate);
+         // ship.GetComponent<Rigidbody>().velocity = ship.transform.right* -moverate;
         }
         if (Input.GetKey(KeyCode.A) == true)
-        {        
-            ship.transform.Rotate(Vector3.up, (yawrate * Time.deltaTime));
+        {
+            ship.GetComponent<Rigidbody>().AddRelativeTorque(Vector3.up * -yawrate);
+            //ship.transform.Rotate(Vector3.up, (yawrate * Time.deltaTime));
         }
         if (Input.GetKey(KeyCode.D) == true)
         {
-            ship.transform.Rotate(Vector3.up, (-yawrate * Time.deltaTime));
+            ship.GetComponent<Rigidbody>().AddRelativeTorque(Vector3.up * yawrate);
+            //ship.transform.Rotate(Vector3.up, (-yawrate * Time.deltaTime));
         }
         if (Input.GetKey(KeyCode.Q) == true)
         {
-            ship.transform.Rotate(Vector3.right, (rollrate * Time.deltaTime));
+            ship.GetComponent<Rigidbody>().AddRelativeTorque(Vector3.right * rollrate);
+            //ship.transform.Rotate(Vector3.right, (rollrate * Time.deltaTime));
         }
         if(Input.GetKey(KeyCode.E) == true)
         {
-            ship.transform.Rotate(Vector3.right, (-rollrate * Time.deltaTime));
+            ship.GetComponent<Rigidbody>().AddRelativeTorque(Vector3.right * -rollrate);
+            //ship.transform.Rotate(Vector3.right, (-rollrate * Time.deltaTime));
         }
         if (Input.GetKey(KeyCode.CapsLock) == true)
         {
-            ship.transform.Rotate(Vector3.forward, (pitchrate * Time.deltaTime));
+            ship.GetComponent<Rigidbody>().AddRelativeTorque(Vector3.forward * pitchrate);
+            //ship.transform.Rotate(Vector3.forward, (pitchrate * Time.deltaTime));
         }
         if (Input.GetKey(KeyCode.F) == true)
         {
-            ship.transform.Rotate(Vector3.forward, (-pitchrate * Time.deltaTime));
+            ship.GetComponent<Rigidbody>().AddRelativeTorque(Vector3.forward * -pitchrate);
+            //ship.transform.Rotate(Vector3.forward, (-pitchrate * Time.deltaTime));
         }
     }
 }
